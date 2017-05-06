@@ -7,6 +7,7 @@ import ModalRoot from './ModalRoot';
 const mapStateToProps = (state) => {
   return {
      modal: state.modal,
+     data: state.data,
   };
 };
 

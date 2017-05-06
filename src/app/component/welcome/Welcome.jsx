@@ -8,20 +8,16 @@ import ModalRoot from '../modal-root/ModalRootContainer';
 import './styles.css';
 
 export default class Welcome extends React.PureComponent {
-  constructor(props) {
-    super(props); // delete, refactor
-  }
-
   render() {
     return (
-      <header className="welcomeTitle">
+      <div className="welcome">
         <button
-          className=""
-          onClick={() => this.props.showModal('isShowingSignInModal')}>
-          Sign In
+          className="welcome-button"
+          onClick={() => this.props.showModal('isShowingGoToStoreModal')}>
+          <span>SIGN IN</span>
         </button>
         <ModalRoot/>
-      </header>
+      </div>
     );
   }
 }

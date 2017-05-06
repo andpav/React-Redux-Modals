@@ -7,6 +7,7 @@ import SignInModal from './SignInModal';
 const mapStateToProps = (state) => {
   return {
     modal: state.modal,
+    data: state.data,
   };
 };
 
@@ -14,10 +15,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     showModal: (id) => {
       dispatch(Actions.showModal(id));
-	},
-	hideModal: () => {
+	  },
+	  hideModal: () => {
       dispatch(Actions.hideModal());
-	},
+	  },
+    setEmail: (email) => {
+      dispatch(Actions.setEmail(email));
+    },
   };
 };
 

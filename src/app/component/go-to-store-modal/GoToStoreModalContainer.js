@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     hideModal: () => {
       dispatch(Actions.hideModal());
     },
+    setStoreName: (storeName) => {
+      dispatch(Actions.setStoreName(storeName));
+    },
   };
 };
 

@@ -16,31 +16,49 @@ export default class ForgotPasswordModal extends React.PureComponent {
 
   successful() {
     if (this.state.isSuccessful) return (
-      <div>
-        Thank you. An email has just been sent to your inbox.
+      <div className="forgotPw-modalSection">
+        <span className="forgotPw-store">
+          Thank you. An email has just been sent to your inbox.
+        </span>
       </div>
     );
+
     return (
       <div>
-        <div> 
-          If your forgot your password simply enter your email address and we'll send you a link to reset your password.
+        <div className="forgotPw-modalSection">
+          <span className="forgotPw-inputDescription"> 
+            If your forgot your password simply enter your email address and we'll send you a link to reset your password.
+          </span> 
         </div>
-        <div>
-          <input name="" required/>
+        <div className="forgotPw-modalSection">
+          <input value={this.props.data.email} className="forgotPw-input"></input>
         </div>
-        <button onClick={() => {
-          this.setState({ isSuccessful: true });
-          }}>SEND RESET PASSWORD EMAIL
-        </button>
+        <div className="forgotPw-modalSection">
+          <button className="forgotPw-button" onClick={() => {
+            this.setState({ isSuccessful: true });
+            }}>
+            <span className="forgotPw-buttonText">SEND RESET PASSWORD EMAIL</span>
+          </button>
+        </div>
       </div>  
     );
   }
   
   render() {
     return (
-      <form className="modalForm" ref={input => this.input = input}>
-        <h2>Forgot your password?</h2>
-        {this.successful()}   
+      <form className="forgotPw-modalForm" ref={input => this.input = input}>
+        <div className="picture" />
+        <div className="forgotPw-modalZoneForgotPw">
+          <h2 className="forgotPw-modalHeader">Forgot your password?</h2>
+          {this.successful()}
+        </div>
+        <div className="forgotPw-modalZoneClose">
+          <a
+            className="close"
+            onClick={() => this.props.hideModal()}>
+            &times;
+          </a>
+        </div>   
       </form>
     );
   }

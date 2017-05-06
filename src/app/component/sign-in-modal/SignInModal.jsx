@@ -9,6 +9,7 @@ export default class SignInModal extends React.PureComponent {
 
     this.state = {
       isInvalid: false,
+      isLoginSuccessful: false,
     };
 
     this.isInvalidPrompt = this.isInvalidPrompt.bind(this);
@@ -17,52 +18,90 @@ export default class SignInModal extends React.PureComponent {
 
   onSubmit() {
     if (this.input.checkValidity()) {
-      if ((this.refs.email.value !== 'abc@abc') && (this.refs.password.value !== 'abc')) {
+      if ((this.refs.email.value !== 'asd@asd') || (this.refs.password.value !== 'asd')) { // refactor
         this.setState({ isInvalid: true });
-      } 
-
-
-      //this.input.reset();
+      } else {
+        this.setState({ isLoginSuccessful: true });
+      }
     }
-  }
-
-  isInvalidPrompt() {
-    if (this.state.isInvalid) return (
-      <div>
-        The username and/or password is invalid.
-      </div>
-    );
     
     return;
   }
 
-  render() {
+  isInvalidPrompt() {
+    if (this.state.isInvalid) return (
+      <div className="signIn-invalid">
+        <span className="signIn-invalidText">
+          The username and/or password is invalid
+        </span>
+      </div>
+    );
+
+    return;
+  }
+
+  successful() {
+    const storeName = this.props.data.storeName;
+
+    if (this.state.isLoginSuccessful) return (
+      <div className="signIn-modalSection>">
+        <span className="signIn-store">You were successfully registered.</span>
+      </div>
+    );
     return (
-      <form className="modalForm" ref={input => this.input = input}>
-        <h2>Sign In to Shoptiques store</h2>
-        <div className="">
-          <span>Hi, Zalando Ltd.</span>
-          <span>Not your store?</span>
+      <div className="">
+        <div className="signIn-modalSection signIn-modalSection_spaceBetween signIn-modalSection_padding6">
+          <span className="signIn-store">Hi, {storeName} Ltd.</span>
+          <span className="signIn-store">Not your store?</span>
         </div>
-        <div>
+        <hr className="signIn-storeLine" />
+        <div className="signIn-modalSection signIn-modalSection_start signIn-modalSection_padding6">         
+          <span className="signIn-inputDescription">Email or username</span>
+        </div>
+        <div className="signIn-modalSection signIn-modalSection_start">
+          <input onClick={() => this.setState({ isInvalid: false })} className="signIn-input" name="email" ref="email" required/>
+        </div>
+        <div className="signIn-modalSection signIn-modalSection_start signIn-modalSection_padding6">
+          <span className="signIn-inputDescription">Password</span>
+        </div>
+        <div className="signIn-modalSection signIn-modalSection_start">
+          <input onClick={() => this.setState({ isInvalid: false })} className="signIn-input" name="password" type="password" ref="password" required/>
+        </div>
+        <div className="signIn-modalSection">
           { this.isInvalidPrompt() }
         </div>
-        <div>         
-          <div>Email or username</div>
-          <input name="email" type="email" ref="email" required/>
+        <div className="signIn-modalSection signIn-modalSection_spaceBetween signIn-modalSection_padding6">
+          <a className="signIn-forgotPassword" onClick={() => {
+            this.props.showModal('isShowingForgotPasswordModal')
+            this.props.setEmail(this.refs.email.value)
+          }}>Forgot password?
+          </a>
+          <button className="signIn-button" onClick={(e) => {
+            e.preventDefault();
+            this.onSubmit();
+          }}>
+            <span className="signIn-buttonText">Sign In</span>
+          </button>
         </div>
-        <div>
-          <div>Password</div>
-          <input name="password" type="password" ref="password" required/>
+      </div>    
+    );
+  }
+
+  render() {
+    return (
+      <form className="signIn-modalForm" ref={input => this.input = input}>
+        <div className="picture" />
+        <div className="signIn-modalZoneSignIn">
+          <h2 className="signIn-modalHeader">Sign In to Shoptiques store</h2>
+          { this.successful() }
         </div>
-        <button onClick={() => {
-          this.props.showModal('isShowingForgotPasswordModal')
-        }}>Forgot password?
-        </button>
-        <button onClick={() => {
-          this.onSubmit();
-        }}>Sign In
-        </button>
+        <div className="signIn-modalZoneClose">
+          <a
+            className="close"
+            onClick={() => this.props.hideModal()}>
+            &times;
+          </a>
+        </div>
       </form>
     );
   }

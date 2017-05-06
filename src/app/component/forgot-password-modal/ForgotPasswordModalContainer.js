@@ -7,6 +7,7 @@ import ForgotPasswordModal from './ForgotPasswordModal';
 const mapStateToProps = (state) => {
   return {
      modal: state.modal,
+     data: state.data,
   };
 };
 

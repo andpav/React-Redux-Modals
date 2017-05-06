@@ -1,11 +1,101 @@
-.modalForm {
+.goToStore-modalForm {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  padding: 20px;
 }
 
-.modalForm input,
-.modalForm textarea,
-.modalForm button {
-  margin: 5px 0;
+.goToStore-modalSection {
+  margin: 4px 0;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.goToStore-modalSection_justifyCenter {
+  justify-content: center;
+}
+
+.goToStore-modalSection_padding20 {
+	padding-top: 20px;
+}
+
+.goToStore-modalHeader {
+	color: #242424;	
+	font-family: Roboto;	
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.goToStore-button {
+	height: 35px;	
+	width: 100%;
+	border-radius: 4px;	
+	background-color: #083BBC;	
+	cursor: pointer;
+	border: 0;
+}
+
+.goToStore-buttonText {	
+	color: #FFFFFF;	
+	font-family: Roboto;	
+	font-size: 12px;	
+	font-weight: 500;	
+	cursor: pointer;
+}
+
+.goToStore-forgotPassword {	
+	color: #909599;	
+	font-family: Roboto;	
+	font-size: 14px;
+	cursor: pointer;	
+}
+
+.goToStore-input {	
+	height: 30px;	
+	width: 60%;	
+	border: 1px solid #E3E3E7;	
+	border-radius: 4px 0 0 4px;
+	background-color: #FFFFFF;
+	padding-left: 5px;
+}
+
+.goToStore-addressBackground {	
+	height: 32px;	
+	width: 40%;	
+	border: 1px solid #083BBC;	
+	border-radius: 0 4px 4px 0;	
+	background-color: #EAF5FD;
+	text-align: center;
+}
+
+.goToStore-addressText {	
+	color: #083BBC;	
+	font-family: Roboto;	
+	font-size: 14px;	
+	vertical-align: sub;
+}
+
+.goToStore-modalZoneGoToStore {
+  padding-left: 20px;
+}
+
+.goToStore-modalZoneClose {
+	padding-left: 20px;
+}
+
+::-webkit-input-placeholder {
+  color: #242424;	
+	font-family: Roboto;	
+	font-size: 14px;;
+}
+
+:-ms-input-placeholder {
+  color: #242424;	
+	font-family: Roboto;	
+	font-size: 14px;
+}
+
+:-moz-placeholder {
+  color: #242424;	
+	font-family: Roboto;	
+	font-size: 14px;
 }
