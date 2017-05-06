@@ -1,0 +1,11 @@
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modalForm input,
+.modalForm textarea,
+.modalForm button {
+  margin: 5px 0;
+}
