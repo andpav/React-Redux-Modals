@@ -6,11 +6,11 @@ import './styles.css';
 
 export default class ModalRoot extends React.PureComponent {
   render() {
-  	const {isShowingGoToStoreModal, isShowingSignInModal, isShowingForgotPasswordModal } = this.props.modal;
+  	const {isShowingGoToStoreModal, isShowingSignInModal, isShowingForgotPasswordModal} = this.props.modal;
     return (
       (isShowingGoToStoreModal || isShowingSignInModal || isShowingForgotPasswordModal) && <div>
         <div className="modal">
-          <div className="modal-content">
+          <div className="modal__content">
             {isShowingGoToStoreModal && <GoToStoreModal/>}
             {isShowingSignInModal && <SignInModal/>}
             {isShowingForgotPasswordModal && <ForgotPasswordModal/>}

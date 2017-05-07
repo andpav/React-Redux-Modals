@@ -6,7 +6,7 @@ import Welcome from './Welcome';
 
 const mapStateToProps = (state) => {
   return {
-     modal: state.modal,
+    modal: state.modal,
   };
 };
 
@@ -14,10 +14,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     showModal: (id) => {
       dispatch(Actions.showModal(id));
-	},
-	hideModal: () => {
+	  },
+  	hideModal: () => {
       dispatch(Actions.hideModal());
-	},
+  	},
   };
 };
 

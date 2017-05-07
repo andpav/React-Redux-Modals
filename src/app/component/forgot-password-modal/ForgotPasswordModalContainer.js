@@ -6,8 +6,8 @@ import ForgotPasswordModal from './ForgotPasswordModal';
 
 const mapStateToProps = (state) => {
   return {
-     modal: state.modal,
-     data: state.data,
+    modal: state.modal,
+    data: state.data,
   };
 };
 
@@ -18,6 +18,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     hideModal: () => {
       dispatch(Actions.hideModal());
+    },
+    setStoreName: (storeName) => {
+      dispatch(Actions.setStoreName(storeName));
+    },
+    setEmail: (email) => {
+      dispatch(Actions.setEmail(email));
     },
   };
 };

@@ -17,12 +17,10 @@ export default class SignInModal extends React.PureComponent {
   }
 
   onSubmit() {
-    if (this.input.checkValidity()) {
-      if ((this.refs.email.value !== 'asd@asd') || (this.refs.password.value !== 'asd')) { // refactor
-        this.setState({ isInvalid: true });
-      } else {
-        this.setState({ isLoginSuccessful: true });
-      }
+    if ((this.refs.email.value !== 'asd@asd') || (this.refs.password.value !== 'asd')) { // refactor
+      this.setState({ isInvalid: true });
+    } else {
+      this.setState({ isLoginSuccessful: true });
     }
     
     return;
@@ -30,8 +28,8 @@ export default class SignInModal extends React.PureComponent {
 
   isInvalidPrompt() {
     if (this.state.isInvalid) return (
-      <div className="signIn-invalid">
-        <span className="signIn-invalidText">
+      <div className="sign-in-modal-warning">
+        <span className="sign-in-modal-warning__text">
           The username and/or password is invalid
         </span>
       </div>
@@ -44,43 +42,51 @@ export default class SignInModal extends React.PureComponent {
     const storeName = this.props.data.storeName;
 
     if (this.state.isLoginSuccessful) return (
-      <div className="signIn-modalSection>">
-        <span className="signIn-store">You were successfully registered.</span>
+      <div className="sign-in-modal__zone-sign-in">
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
+          <h2 className="sign-in-modal-header">Sign In to Shoptiques store</h2>
+        </div>
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
+          <span className="sign-in-modal-label">You were successfully registered.</span>
+        </div>
       </div>
     );
     return (
-      <div className="">
-        <div className="signIn-modalSection signIn-modalSection_spaceBetween signIn-modalSection_padding6">
-          <span className="signIn-store">Hi, {storeName} Ltd.</span>
-          <span className="signIn-store">Not your store?</span>
+      <div className="sign-in-modal__zone-sign-in">
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
+          <h2 className="sign-in-modal-header">Sign In to Shoptiques store</h2>
         </div>
-        <hr className="signIn-storeLine" />
-        <div className="signIn-modalSection signIn-modalSection_start signIn-modalSection_padding6">         
-          <span className="signIn-inputDescription">Email or username</span>
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
+          <span className="sign-in-modal-label">Hi, {storeName} Ltd.</span>
+          <span className="sign-in-modal-label">Not your store?</span>
         </div>
-        <div className="signIn-modalSection signIn-modalSection_start">
-          <input onClick={() => this.setState({ isInvalid: false })} className="signIn-input" name="email" ref="email" required/>
+        <hr className="sign-in-modal-line" />
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">         
+          <span className="sign-in-modal-input-description">Email or username</span>
         </div>
-        <div className="signIn-modalSection signIn-modalSection_start signIn-modalSection_padding6">
-          <span className="signIn-inputDescription">Password</span>
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
+          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="email" ref="email" required/>
         </div>
-        <div className="signIn-modalSection signIn-modalSection_start">
-          <input onClick={() => this.setState({ isInvalid: false })} className="signIn-input" name="password" type="password" ref="password" required/>
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">
+          <span className="sign-in-modal-input-description">Password</span>
         </div>
-        <div className="signIn-modalSection">
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
+          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="password" type="password" ref="password" required/>
+        </div>
+        <div className="sign-in-modal-section">
           { this.isInvalidPrompt() }
         </div>
-        <div className="signIn-modalSection signIn-modalSection_spaceBetween signIn-modalSection_padding6">
-          <a className="signIn-forgotPassword" onClick={() => {
-            this.props.showModal('isShowingForgotPasswordModal')
-            this.props.setEmail(this.refs.email.value)
+        <div className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
+          <a className="sign-in-modal-link" onClick={() => {
+            this.props.showModal('isShowingForgotPasswordModal');
+            this.props.setEmail(this.refs.email.value);
           }}>Forgot password?
           </a>
-          <button className="signIn-button" onClick={(e) => {
+          <button className="sign-in-modal-button" onClick={(e) => {
             e.preventDefault();
             this.onSubmit();
           }}>
-            <span className="signIn-buttonText">Sign In</span>
+            <span className="sign-in-modal-button__text">Sign In</span>
           </button>
         </div>
       </div>    
@@ -89,13 +95,10 @@ export default class SignInModal extends React.PureComponent {
 
   render() {
     return (
-      <form className="signIn-modalForm" ref={input => this.input = input}>
-        <div className="picture" />
-        <div className="signIn-modalZoneSignIn">
-          <h2 className="signIn-modalHeader">Sign In to Shoptiques store</h2>
-          { this.successful() }
-        </div>
-        <div className="signIn-modalZoneClose">
+      <form className="sign-in-modal">
+        <div className="sign-in-modal-picture" />
+        { this.successful() }
+        <div className="sign-in-modal__zone-close ">
           <a
             className="close"
             onClick={() => this.props.hideModal()}>

@@ -1,8 +1,19 @@
-.forgotPw-modalForm {
+.forgot-pw-modal {
   display: flex;
 }
 
-.forgotPw-modalSection {
+.forgot-pw-modal__zone-forgot-pw {
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+.forgot-pw-modal__zone-close {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+.forgot-pw-modal-section {
   margin: 6px 0;
   width: 350px;
   display: flex;
@@ -10,18 +21,22 @@
   align-items: center;
 }
 
-.forgotPw-modalSection_padding6 {
-	padding-top: 6px;
+.forgot-pw-modal-section_justify-content-start {
+  justify-content: flex-start;
 }
 
-.forgotPw-modalHeader {
+.forgot-pw-modal-section_padding-4 {
+	padding-top: 4px;
+}
+
+.forgot-pw-modal-header {
 	color: #242424;	
 	font-family: Roboto;	
 	font-size: 18px;
 	font-weight: normal;
 }
 
-.forgotPw-button {
+.forgot-pw-modal-button {
 	height: 34px;	
 	width: 100%;	
 	border-radius: 4px;	
@@ -30,13 +45,7 @@
 	border: 0;		
 }
 
-.forgotPw-inputDescription {	
-	color: #909599;	
-	font-family: Roboto;	
-	font-size: 14px;
-}
-
-.forgotPw-buttonText {	
+.forgot-pw-modal-button__text {	
 	color: #FFFFFF;	
 	font-family: Roboto;	
 	font-size: 14px;	
@@ -44,7 +53,7 @@
 	cursor: pointer;
 }
 
-.forgotPw-input {	
+.forgot-pw-modal-input {	
 	height: 30px;	
 	width: 100%;	
 	border: 1px solid #E3E3E7;	
@@ -53,26 +62,21 @@
 	padding-left: 5px;
 }
 
-.forgotPw-store {
+.forgot-pw-modal-input-description {	
+	color: #909599;	
+	font-family: Roboto;	
+	font-size: 14px;
+}
+
+.forgot-pw-modal-label {
 	color: #B99E96;	
 	font-family: Roboto;	
 	font-size: 14px;	
 	font-weight: 500;
 }
 
-.picture {
+.forgot-pw-modal-picture {
   background-image: url(../../entry/picture.png);
   height: 500px;
   width: 500px;
-}
-
-.forgotPw-modalZoneForgotPw {
-  padding-left: 20px;
-  padding-top: 40px;
-}
-
-.forgotPw-modalZoneClose {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 20px;
 }

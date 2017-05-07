@@ -1,8 +1,19 @@
-.signIn-modalForm {
+.sign-in-modal {
   display: flex;
 }
 
-.signIn-modalSection {
+.sign-in-modal__zone-sign-in {
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+.sign-in-modal__zone-close {
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-right: 20px;
+}
+
+.sign-in-modal-section {
   margin: 4px 0;
   width: 350px;
   display: flex;
@@ -10,26 +21,26 @@
   align-items: center;
 }
 
-.signIn-modalSection_spaceBetween {
+.sign-in-modal-section_justify-content-space-between {
   justify-content: space-between;
 }
 
-.signIn-modalSection_start {
+.sign-in-modal-section_justify-content-start {
   justify-content: flex-start;
 }
 
-.signIn-modalSection_padding6 {
+.sign-in-modal-section_padding-6 {
 	padding-top: 6px;
 }
 
-.signIn-modalHeader {
+.sign-in-modal-header {
 	color: #242424;	
 	font-family: Roboto;	
 	font-size: 18px;
 	font-weight: normal;
 }
 
-.signIn-button {
+.sign-in-modal-button {
 	height: 30px;	
 	width: 30%;	
 	border-radius: 4px;	
@@ -38,14 +49,7 @@
 	border: 0;		
 }
 
-
-.signIn-inputDescription {	
-	color: #909599;	
-	font-family: Roboto;	
-	font-size: 14px;
-}
-
-.signIn-buttonText {	
+.sign-in-modal-button__text {	
 	color: #FFFFFF;	
 	font-family: Roboto;	
 	font-size: 14px;	
@@ -53,14 +57,7 @@
 	cursor: pointer;
 }
 
-.signIn-forgotPassword {	
-	color: #909599;	
-	font-family: Roboto;	
-	font-size: 14px;
-	cursor: pointer;	
-}
-
-.signIn-input {	
+.sign-in-modal-input {	
 	height: 30px;	
 	width: 100%;	
 	border: 1px solid #E3E3E7;	
@@ -69,21 +66,34 @@
 	padding-left: 5px;
 }
 
-.signIn-store {
+.sign-in-modal-input-description {	
+	color: #909599;	
+	font-family: Roboto;	
+	font-size: 14px;
+}
+
+.sign-in-modal-link {	
+	color: #909599;	
+	font-family: Roboto;	
+	font-size: 14px;
+	cursor: pointer;	
+}
+
+.sign-in-modal-label {
 	color: #B99E96;	
 	font-family: Roboto;	
 	font-size: 14px;	
 	font-weight: 500;
 }
 
-.signIn-storeLine {
+.sign-in-modal-line {
 	border: none;
   color: #B99E96;
   background-color: #B99E96;
   height: 1px;
 }
 
-.signIn-invalid {
+.sign-in-modal-warning {
 	height: 30px;	
 	width: 100%;	
 	border: 1px solid #F4282D;	
@@ -93,26 +103,15 @@
 	text-align: center;
 }
 
-.signIn-invalidText {
+.sign-in-modal-warning__text {
 	color: #F4282D;	
 	font-family: Roboto;	
 	font-size: 16px;
 	vertical-align: sub;
 }
 
-.picture {
+.sign-in-modal-picture {
   background-image: url(../../entry/picture.png);
   height: 500px;
   width: 500px;
-}
-
-.signIn-modalZoneSignIn {
-  padding-left: 20px;
-  padding-top: 40px;
-}
-
-.signIn-modalZoneClose {
-	padding-left: 20px;
-	padding-top: 20px;
-	padding-right: 20px;
 }

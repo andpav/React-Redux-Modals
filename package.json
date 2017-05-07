@@ -6,7 +6,8 @@
   "scripts": {
     "serve:dev": "./node_modules/.bin/webpack-dev-server --env=dev --hot --profile --colors --no-inline",
     "build:dev": "./node_modules/.bin/webpack --env=dev --progress --profile --colors",
-    "build:prod": "./node_modules/.bin/webpack --env=prod --progress --profile --colors"
+    "build:prod": "./node_modules/.bin/webpack --env=prod --progress --profile --colors",
+    "lint": "eslint src/ --ext .jsx --ext .js"
   },
   "author": "andpav",
   "license": "MIT",

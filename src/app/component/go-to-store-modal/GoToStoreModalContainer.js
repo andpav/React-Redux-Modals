@@ -6,7 +6,7 @@ import GoToStoreModal from './GoToStoreModal';
 
 const mapStateToProps = (state) => {
   return {
-     modal: state.modal,
+    modal: state.modal,
   };
 };
 

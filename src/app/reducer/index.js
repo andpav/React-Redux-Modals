@@ -7,42 +7,42 @@ const modalInitialState = {
   isShowingGoToStoreModal: false,
   isShowingSignInModal: false,
   isShowingForgotPasswordModal: false,
-}
+};
 
 const modal = (state = modalInitialState, action) => {
   switch (action.type) {
     case ActionTypes.SHOW_MODAL:
       return Object.assign({}, modalInitialState,  {
         [action.payload]: true,
-      })
+      });
     case ActionTypes.HIDE_MODAL:
-      return modalInitialState
+      return modalInitialState;
     default:
-      return state
+      return state;
   }
-}
+};
 
 const dataInitialState = {
   storeName: '',
   email: '',
-}
+};
 
 const data = (state = dataInitialState, action) => {
   switch (action.type) {
     case ActionTypes.SET_STORENAME:
       return Object.assign({}, state,  {
         storeName: action.payload,
-      })
+      });
     case ActionTypes.SET_EMAIL:
       return Object.assign({}, state,  {
         email: action.payload,
-      })
+      });
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default combineReducers({
   modal,
   data
-})
+});
