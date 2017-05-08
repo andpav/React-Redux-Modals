@@ -4,7 +4,7 @@ import React from 'react';
 import './styles.css';
 
 export default class SignInModal extends React.PureComponent {
-  constructor(props)  {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -17,13 +17,16 @@ export default class SignInModal extends React.PureComponent {
   }
 
   onSubmit() {
-    if ((this.refs.email.value !== 'asd@asd') || (this.refs.password.value !== 'asd')) { // refactor
-      this.setState({ isInvalid: true });
-    } else {
-      this.setState({ isLoginSuccessful: true });
-    }
-    
-    return;
+
+    const username = this.refs.email.value;
+    const password = this.refs.password.value;
+    // if ((username !== 'asd@asd') || (password !== 'asd')) { // refactor
+    //   this.setState({ isInvalid: true });
+    // }
+    // else {
+    //   this.setState({ isLoginSuccessful: true });
+    // }
+    this.props.login(username, password);
   }
 
   isInvalidPrompt() {
@@ -34,8 +37,6 @@ export default class SignInModal extends React.PureComponent {
         </span>
       </div>
     );
-
-    return;
   }
 
   successful() {
@@ -56,27 +57,33 @@ export default class SignInModal extends React.PureComponent {
         <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
           <h2 className="sign-in-modal-header">Sign In to Shoptiques store</h2>
         </div>
-        <div className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
+        <div
+          className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
           <span className="sign-in-modal-label">Hi, {storeName} Ltd.</span>
           <span className="sign-in-modal-label">Not your store?</span>
         </div>
-        <hr className="sign-in-modal-line" />
-        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">         
+        <hr className="sign-in-modal-line"/>
+        <div
+          className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">
           <span className="sign-in-modal-input-description">Email or username</span>
         </div>
         <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
-          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="email" ref="email" required/>
+          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="email"
+                 ref="email" required/>
         </div>
-        <div className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">
+        <div
+          className="sign-in-modal-section sign-in-modal-section_justify-content-start sign-in-modal-section_padding-6">
           <span className="sign-in-modal-input-description">Password</span>
         </div>
         <div className="sign-in-modal-section sign-in-modal-section_justify-content-start">
-          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="password" type="password" ref="password" required/>
+          <input onClick={() => this.setState({ isInvalid: false })} className="sign-in-modal-input" name="password"
+                 type="password" ref="password" required/>
         </div>
         <div className="sign-in-modal-section">
           { this.isInvalidPrompt() }
         </div>
-        <div className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
+        <div
+          className="sign-in-modal-section sign-in-modal-section_justify-content-space-between sign-in-modal-section_padding-6">
           <a className="sign-in-modal-link" onClick={() => {
             this.props.showModal('isShowingForgotPasswordModal');
             this.props.setEmail(this.refs.email.value);
@@ -89,14 +96,14 @@ export default class SignInModal extends React.PureComponent {
             <span className="sign-in-modal-button__text">Sign In</span>
           </button>
         </div>
-      </div>    
+      </div>
     );
   }
 
   render() {
     return (
       <form className="sign-in-modal">
-        <div className="sign-in-modal-picture" />
+        <div className="sign-in-modal-picture"/>
         { this.successful() }
         <div className="sign-in-modal__zone-close ">
           <a

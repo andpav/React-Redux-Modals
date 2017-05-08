@@ -28,3 +28,24 @@ export const setEmail = (email) => {
     payload: email,
   };
 };
+
+export const login = (username, password) => {
+  return {
+    type: ActionTypes.LOGIN,
+    payload: { username, password },
+  };
+};
+
+export const logged = (credentials) => {
+  return {
+    type: ActionTypes.LOGGED,
+    payload: credentials,
+  };
+};
+
+export const authErr = () => {
+  return {
+    type: ActionTypes.AUTH_ERR,
+    payload: 'Authentication error',
+  };
+};

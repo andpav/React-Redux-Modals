@@ -17,6 +17,7 @@ module.exports = () => {
   // noinspection JSUnresolvedFunction
   return {
     entry: [
+      'babel-polyfill',
       path.resolve(rootDir, 'src/app/entry', 'index')
     ],
     output: {

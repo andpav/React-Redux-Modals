@@ -1,6 +1,6 @@
 'use strict';
 
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import * as ActionTypes from '../action/action-types';
 
 const modalInitialState = {
@@ -12,7 +12,7 @@ const modalInitialState = {
 const modal = (state = modalInitialState, action) => {
   switch (action.type) {
     case ActionTypes.SHOW_MODAL:
-      return Object.assign({}, modalInitialState,  {
+      return Object.assign({}, modalInitialState, {
         [action.payload]: true,
       });
     case ActionTypes.HIDE_MODAL:
@@ -30,11 +30,11 @@ const dataInitialState = {
 const data = (state = dataInitialState, action) => {
   switch (action.type) {
     case ActionTypes.SET_STORENAME:
-      return Object.assign({}, state,  {
+      return Object.assign({}, state, {
         storeName: action.payload,
       });
     case ActionTypes.SET_EMAIL:
-      return Object.assign({}, state,  {
+      return Object.assign({}, state, {
         email: action.payload,
       });
     default:
@@ -42,7 +42,19 @@ const data = (state = dataInitialState, action) => {
   }
 };
 
+const auth = (state = {}, action) => {
+  switch (action.type) {
+    case ActionTypes.LOGGED:
+      return action.payload;
+    case ActionTypes.AUTH_ERR:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   modal,
-  data
+  data,
+  auth,
 });
